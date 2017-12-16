@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘云购后台管理系统</title>
+    <!-- 引入bootstrap库 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入NProgress -->
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <!-- 引入表单验证插件的css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <!-- 引入当前页面的css -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+    <!-- 左侧 -->
+    <aside class="lt-aside">
+        <!-- brand -->
+        <div class="brand">
+            <a href="./index.html">
+                ITCAST
+            </a>
+        </div>
+        <!-- user -->
+        <div class="user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- menu -->
+        <ul class="menu">
+            <li>
+                <a href="./userManage.html">
+                    <i class="glyphicon glyphicon-user"></i> 用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i> 分类管理
+                </a>
+                <div class="child">
+                    <a href="./categoryFirst.html">一级分类</a>
+                    <a href="./categorySecond.html">二级分类</a>
+                </div>
+            </li>
+            <li>
+                <a href="./productManage.html">
+                    <i class="glyphicon glyphicon-tags"></i> 商品管理
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- 右侧 -->
+    <section class="lt-section">
+        <!-- 顶部导航 -->
+        <div class="lt-nav">
+            <a data-menu href="javascript:;">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a data-logout data-toggle="modal" href="#logout-modal">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </a>
+        </div>
+
+        <div class="lt-content">
+
+            <div class="container-fluid">
+                <!-- 路径导航 -->
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">管理系统</a>
+                    </li>
+                    <li class="active">商品管理</li>
+                </ol>
+                <div class="lt-content ">
+                    <a href="#product-modal" data-toggle="modal" class="btn btn-default" style="margin-bottom:20px">添加商品</a>
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>商品名称</th>
+                                <th>商品描述</th>
+                                <th>商品库存</th>
+                                <th>商品尺寸</th>
+                                <th>商品状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>1</td>
+                                <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
+                                <td>描述</td>
+                                <td>44</td>
+                                <td>35-65</td>
+                                <td>已上架</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-dander">下架</a>
+                                    <a href="javascript:;" class="btn btn-primary">上架</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="page">
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="product-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">编辑商品</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- 接口地址 /product/updateProduct 请求方式 POST 参数说明 参数名称|是否必须|说明 --|--|-- id |是|产品id proName|是|产品名称 oldPrice|是|老价格 price|是|价格 proDesc|是|产品描述
+                    size|是|产品尺寸 statu|是|产品上下架 num|是|用户库存 brandId|是|归属品牌 pic图片数组[{"picName":"24-1.png","picAddr":"product/24-1.png"},{"picName":"24-1.png","picAddr":"product/24-1.png"}] -->
+
+
+                    <form id="productform"> 
+                        <div class="form-group">
+                            <label class="sr-only" for="proName"></label>
+                            <input type="text" class="form-control" name="proName" id="proName" placeholder="请输入商品名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="proDesc"></label>
+                            <textarea type="text" class="form-control" name="proDesc" id="proDesc" placeholder="请输入商品描述"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="num"></label>
+                            <input type="text" class="form-control" name="num" id="num" placeholder="请输入商品库存">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="price"></label>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="请输入商品价格">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="oldPrice"></label>
+                            <input type="text" class="form-control" name="oldPrice" id="oldPrice" placeholder="请输入商品原价">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="size"></label>
+                            <input type="text" class="form-control" name="size" id="size" placeholder="请输入商品尺码">
+                        </div>
+                        <!-- <div class="form-group fileupload">
+                            <div style="margin-top:20px">
+                                <label class="sr-only " for="pic"></label>
+                                <a href="javascript:;" class="btn btn-default">上传图片</a>
+                                <input type="file" class="form-control" name="pic1" id="pic" placeholder="请输入商品品牌">
+                                <span>提示：必须上传三张图片</span>
+                            </div>
+
+                        </div> -->
+                        <div class="form-group fileupload">
+                            <div style="margin-bottom: 20px">
+                                <label class="sr-only" for="pic"></label>
+                                <a href="javascript:;" class="btn btn-default">上传图片</a>
+                                <input type="file" class="form-control" name="pic1" id="pic">
+                                <span>提示： 必须上传三个图片</span>
+                               
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" id="save" form="productform">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+  模板引擎
+
+  用法： 
+  1.声明模板
+    1.1 原生语法<%%> 输出<%=%>
+    1.2 简洁语法{{}}
+
+  2.绑定数据
+  template(模板的id,数据对象)
+
+ -->
+
+    <script type="text/template" id="product-template">
+  <%for(var i = 0; i<rows.length;i++){%>
+
+  <tr class="text-center">
+                <td><%=(page-1)*size+i+1%></td>
+                <td><%=rows[i].proName%></td>
+                <td><%=rows[i].proDesc%></td>
+                <td><%=rows[i].num%></td>
+                <td><%=rows[i].size%></td>
+                <td><%=rows[i].statu==1?'已上架':'下架'%></td>
+                <td>
+                  <a href="javascript:;" data-id="<%=rows[i].id%>" data-brand-id="<%=rows[i].brandId%>" class="btn btn-danger">下架</a>
+                  <a href="javascript:;" data-id="<%=rows[i].id%>" data-brand-id="<%=rows[i].brandId%>" class="btn btn-primary">上架</a>
+                </td>
+              </tr>
+    <%}%>
+</script>
+
+
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap的插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入echarts库 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+    <!-- 引入表单验证的插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!--表单上传插件 -->
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+    <!-- 引入admin文件 -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入index.js -->
+    <script src="./js/productManage.js"></script>
+</body>
+
+</html>

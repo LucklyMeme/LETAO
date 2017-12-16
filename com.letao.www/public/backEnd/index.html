@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘云购后台管理系统</title>
+    <!-- 引入bootstrap库 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引入nprogress进度条 -->
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <!-- 引入 表单验证插件css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <!-- 引入 当前页面的css样式 -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+    <!--左侧 -->
+    <aside class="lt-aside">
+        <!--brand  -->
+        <div class="brand">
+            <a href="javascript:;">
+                ITCAST
+            </a>
+        </div>
+        <!-- user -->
+        <div class="user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- menu -->
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="javascript:;">
+                        <i class="glyphicon glyphicon-user"></i> 用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="glyphicon glyphicon-list"></i> 分类管理
+                    </a>
+                    <div class="child">
+                        <a href="javacript:;">一级分类</a>
+                        <a href="javacript:;">二级分类</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="glyphicon glyphicon-tags"></i> 商品管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- 右侧 -->
+    <section class="lt-section">
+        <!-- 顶部导航 -->
+        <nav class="lt-nav">
+            <a data-menu href="javascript:;">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a  data-logout data-toggle="modal" data-target="#logout-modal">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </a>
+        </nav>
+        <!-- 路径导航 -->
+        <div class="lt-content">
+            <div class="content-fluid">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">管理系统</a>
+                    </li>
+                    <li class="active">首页</li>
+                </ol>
+                <div class="lt-canvas">
+                    <div class="picTable">
+                        
+                    </div>
+                    <div class="picTable">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- 模态框 -->
+<div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">温馨提醒：</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-danger">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    您确定要退出后台管理系统吗？
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- 引入 jQuery库 -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入echarts库 -->
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入 表单验证插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入 bootstrap 框架 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入 进度条 插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入 admin文件  -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入 index.js 文件-->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘云购后台管理系统</title>
+  <!-- 引入bootstrap库 -->
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <!-- 引入NProgress -->
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <!-- 引入表单验证插件的css -->
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <!-- 引入当前页面的css -->
+  <link rel="stylesheet" href="./css/admin.css">
+  <style>
+    th {
+      text-align: center;
+    }
+
+    .fileupload {
+      position: relative;
+    }
+
+    .fileupload input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+ <!-- 左侧 -->
+ <aside class="lt-aside">
+    <!-- brand -->
+    <div class="brand">
+      <a href="./index.html">
+        ITCAST
+      </a>
+    </div>
+    <!-- user -->
+    <div class="user">
+      <img src="./images/default.png" alt="">
+      <span>超级管理员</span>
+    </div>
+    <!-- menu -->
+    <ul class="menu">
+      <li>
+        <a href="./userManage.html">
+          <i class="glyphicon glyphicon-user"></i> 用户管理
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="glyphicon glyphicon-list"></i> 分类管理
+        </a>
+        <div class="child">
+          <a href="./categoryFirst.html">一级分类</a>
+          <a href="./categorySecond.html">二级分类</a>
+        </div>
+      </li>
+      <li>
+        <a href="./productManage.html">
+          <i class="glyphicon glyphicon-tags"></i> 商品管理
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <!-- 右侧 -->
+  <section class="lt-section">
+    <!-- 顶部导航 -->
+    <div class="lt-nav">
+      <a data-menu href="javascript:;">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a data-logout data-toggle="modal" href="#logout-modal">
+        <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+    </div>
+
+    <div class="lt-content">
+      <div class="container-fluid">
+        <!-- 路径导航 -->
+        <ol class="breadcrumb">
+          <li>
+            <a href="#">管理系统</a>
+          </li>
+          <li class="active">分类管理</li>
+          <li class="active">一级分类</li>
+        </ol>
+        <div class="lt-content">
+          <a href="#second-modal" data-toggle="modal" class="btn btn-default">添加分类</a>
+          <table class="table table-bordered table-hover" style="margin-top: 20px">
+            <thead>
+              <tr class="text-center">
+                <th>序号</th>
+                <th>一级分类名称</th>
+                <th>二级分类名称</th>
+                <th>二级分类LOGO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <td>1</td>
+                <td>女士馆</td>
+                <td>上装</td>
+                <td>
+                  <img src="" alt="">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="page">
+            <ul class="pagination"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="second-modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <div class="dropdown">
+            <span>一级分类：</span>
+            <button class="btn btn-default" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="dropdown-text">游泳馆</span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              
+            </ul>
+          </div>
+          <form id="secondform">
+            <input id="categoryId" type="hidden" name="categoryId">
+            <div class="form-group" style="margin-top: 20px;">
+              <label class="sr-only" for="brandName">二级分类</label>
+              <input type="text" class="form-control" name="brandName" id="brandName" placeholder="请输入二级分类">
+            </div>
+            <div class="form-group fileupload">
+              <!-- 隐藏表单 隐藏域 用于获取 添加的分类
+                $('[name="brandLogo"]')  / $("#brandLogo")
+              -->
+              <input type="hidden" id="brandLogo" name="brandLogo">
+              <a href="javascript:;" class="btn btn-default">上传图片</a>
+              <input type="file" name="pic1"  id="secondupload">
+            </div>
+            <div class="preview">
+              <img width="100" height="100" id="previewimg" src="./images/none.png" alt="">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <!-- 锚点跳转 -->
+          <button type="submit" id="save" class="btn btn-primary" form="secondform">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/template" id="second-template">
+    <% for(var i=0;i<rows.length;i++){%>
+      <tr class="text-center">
+        <td><%=(page-1)*size+i+1%></td>
+        <td><%=rows[i].categoryName%></td>
+        <td><%=rows[i].brandName%></td>
+        <td>
+          <img height="30" src="<%=rows[i].brandLogo%>" alt="">
+        </td>
+      </tr>
+      <%}%>
+
+  </script>
+
+  <!-- 引入jquery -->
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <!-- 引入bootstrap的插件 -->
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <!-- 引入模板引擎 -->
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入表单验证的插件 -->
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <!-- 引入分页插件 -->
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <!-- 引入上传插件 -->
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+  <!-- 引入进度条插件 -->
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <!-- 引入admin文件 -->
+  <script src="./js/admin.js"></script>
+  <!-- 引入index.js -->
+  <script src="./js/categorySecond.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,330 @@
+/* 移动端页面 */
+.cz_topBar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background: #006699;
+    text-align: center;
+    color: #fff;
+   
+}
+.cz_topBar .icon_search {
+  position:absolute;
+  right:20px;
+  top:14px;
+  text-decoration:none;
+  padding:0 10px;
+  color:#fff;
+}
+.cz_topBar .mui-title{
+    font-size:20px;
+    color:#fff;
+   
+}
+
+/* 轮播图 */
+.mui-slider {
+    margin-top:45px;
+}
+.mui-content{
+    background-color:#fff;
+}
+/* 九宫格 */
+.grid-nine {
+    width: 100%;
+    height: 100%;
+  margin:10px 0;
+  padding:0 10px;
+    box-sizing:border-box;
+}
+.grid-nine ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+    width: 100%;
+    height:100%;
+}
+
+.grid-nine li {
+    float:left;
+    width:33.33%;
+    height:33.33%;
+}
+.grid-nine li a{
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+}
+.grid-nine li img {
+    vertical-align:middle;
+    width: 100%;
+    height: 100%;
+}
+
+/* 匡威广告 */
+.kw-advert {
+    width: 100%;
+    padding:0 10px;
+    box-sizing:border-box;
+}
+.kw-advert ul{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style:none;
+    display:flex;
+}
+
+.kw-advert a {
+    width: 100%;
+    display:block;
+}
+.kw-advert img{
+    vertical-align:middle;
+    width: 100%;
+    height: auto;
+}
+.kw-advert li:first-child {
+    flex:1;
+}
+.kw-advert li:first-child a{
+    float:left;
+    width: 50%;
+}
+.kw-advert li:last-child{
+    width: 32.9%;
+}
+/* 图片 */
+/* .pic {
+    box-sizing:border-box;
+    overflow:hidden;
+}
+.pic img {
+    vertical-align:middle;
+    width:32%;
+    position: relative;
+}
+.pic .pic-left{
+   
+    display:inline-block;
+}
+.pic .pic-left img {
+    float:left;
+    vertical-align:middle;
+}
+
+.pic .pic-left .pic-bottom{
+   display:block;
+}
+.pic .pic-right {
+    width: 33.333%;
+   float:right;
+}
+.pic .pic-left .pic-bottom {
+    float:left;
+}
+.pic .pic-left .pic-bottom img {
+    vertical-align:middle;
+    float:left;
+}
+.pic .pic-right{
+    position:absolute;
+    top:540px;
+    right:0;
+}
+.pic .pic-right img {
+    vertical-align:middle;
+   width: 100%;
+    
+} */
+.pinpai {
+    margin:10px 0;
+    padding:0 10px;
+    width: 100%;
+    height: 100%;
+}
+.pinpai img {
+    width: 100%;
+    height: 100%;
+}
+
+/* logo */
+.tubiao {
+    width:100%;
+    height:100%;
+    margin:10px 0;
+    padding:0 10px;
+}
+.tubiao ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    list-style:none;
+}
+.tubiao ul li {
+    float:left;
+    width: 25%;
+    height: 25%;
+    
+}
+.tubiao ul li  a {
+    width: 100%;
+    height: 100%;
+    display:inline-block;
+}
+.tubiao ul li img {
+    width: 100%;
+    height:100%;
+    vertical-align:middle;
+}
+.mui-slider-indicator{
+    z-index: 200;
+}
+/* 运动生活区 */
+/* .sports-area {
+    width: 100%;
+    margin-top:10px;
+    padding:0 10px;
+    font-size:0;
+    box-sizing:border-box;
+}
+.item-wrap {
+  float:left;
+  width: 40%;
+  box-sizing:border-box;
+  margin-bottom:10px;  
+}
+.item-wrap  .item{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    text-align:center;
+    background-color:#fff;
+    box-shadow:0 0 2px rgba(0,0,0,0.5);
+    float:left;
+}
+/* .item-wrap:nth-child(odd){
+    padding-right:3px;
+}
+.item-wrap:nth-child(even){
+    padding-left: 3px;
+} */
+/* .item-wrap .item img{
+    width: 100%;
+    vertical-align:middle;
+    height:auto;
+}
+.item-wrap .item p{
+   width: 100%;
+   padding:0 10px;
+   box-sizing:border-box;
+   height:36px;
+   line-height:18px;
+   /* 多行文字出现省略号 */
+   /* overflow:hidden;
+   display:-webkit-box;
+   -webkit-box-orient:vertical;
+   /* 控制文字显示几行出现省略号 
+   -webkit-line-clamp:2;
+} */
+/* .item-wrap .item .price{
+    font-size:12px;
+    text-align:center;
+}
+.item-wrap .item .price .new {
+    color:#f00;
+}
+.item-wrap .item .price .old{
+    color:#999;
+    text-decoration:line-through;
+    margin-left:5px;
+}
+.item-wrap .item button{
+  margin:10px auto;
+  background-color:#069;
+  color:#fff;
+}  */
+
+/* 运动生活专区 */
+.sports-area {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 10px;
+    font-size: 0;
+    box-sizing: border-box;
+  }
+ 
+ /* .item-wrap {
+    float:left;
+    width: 50%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+   .item-wrap:nth-child(odd) {
+    padding-right: 3px;
+    box-sizing: border-box;
+  }
+  
+  .item-wrap:nth-child(even) {
+    padding-left: 3px;
+    box-sizing: border-box;
+  }
+  
+  .item-wrap  .item {
+     display:block;
+     width: 100%;
+ 
+     box-shadow: 0 0 2px rgba(0,0,0,0.5);
+     background-color: #fff;
+     text-align: center;
+  }
+  
+  
+  .item-wrap .item img {
+    width: 100%;
+    vertical-align: middle;
+    height: auto;
+  }
+   */
+  .item-wrap  .item p {
+    width: 100%;
+    padding:0px 10px;
+    box-sizing: border-box;
+    height: 36px;
+    line-height: 18px;
+    /* 建议不要改 */
+    letter-spacing: 1px;
+  
+    overflow: hidden;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    /* 控制文字显示几行出现省略号 */
+    -webkit-line-clamp:2;
+  }
+/*   
+  .item-wrap  .item .price {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .item-wrap .item  .price .new {
+    color: #f00;
+  }
+  
+  .item-wrap .item  .price .old {
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 5px;
+  }
+  
+  .item-wrap .item  button {
+    margin: 10px auto;
+    background-color: #069;
+    color: #fff;
+  } */

@@ -1,0 +1,138 @@
+ *{
+     margin: 0;
+     padding: 0;
+
+ }
+ ul,ol {
+     list-style:none;
+ }
+ a{
+     text-decoration:none;
+ }
+/* header */
+.lt-header {
+    background-color:#006699;
+    line-height: 45px;
+  }
+  
+  .lt-header a {
+    display: block;
+    line-height: 45px;
+    color: #fff;
+    padding: 0 10px;
+  }
+  
+  .lt-header .mui-title {
+    color: #fff;
+  }
+  
+  /* 轮播图 */
+.mui-slider {
+  margin-top:45px;
+}
+.mui-content{
+  background-color:#fff;
+}
+  
+  /* footer */
+  .lt-toolbar {
+    background-color: #006699;
+  }
+  .lt-toolbar span:first-child {
+    display: block;
+  }
+  
+  .lt-toolbar span:last-child {
+    font-size: 11px;
+  }
+  
+  .lt-toolbar .mui-item {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #fff;
+  }
+  
+  .lt-toolbar .mui-item.mui-active {
+    color: darkorange;
+  }
+
+  .sports-area{
+    margin-top:10px;
+    padding:0 10px;
+  }
+  .item-wrap {
+    float:left;
+    width: 50%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+   .item-wrap:nth-child(odd) {
+    padding-right: 3px;
+    box-sizing: border-box;
+  }
+  
+  .item-wrap:nth-child(even) {
+    padding-left: 3px;
+    box-sizing: border-box;
+  }
+  
+  .item-wrap  .item {
+     display:block;
+     width: 100%;
+ 
+     box-shadow: 0 0 2px rgba(0,0,0,0.5);
+     background-color: #fff;
+     text-align: center;
+  }
+  
+  
+  .item-wrap .item img {
+    width: 100%;
+    vertical-align: middle;
+    height: auto;
+  }
+  
+  .item-wrap  .item p {
+    width: 100%;
+    padding:0px 10px;
+    box-sizing: border-box;
+    height: 36px;
+    line-height: 18px;
+    /* 建议不要改 */
+    letter-spacing: 1px;
+  
+    overflow: hidden;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    /* 控制文字显示几行出现省略号 */
+    -webkit-line-clamp:2;
+  }
+  
+  .item-wrap  .item .price {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .item-wrap .item  .price .new {
+    color: #f00;
+  }
+  
+  .item-wrap .item  .price .old {
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 5px;
+  }
+  
+  .item-wrap .item  button {
+    margin: 10px auto;
+    background-color: #069;
+    color: #fff;
+  }
+  
