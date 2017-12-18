@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +61,7 @@
             <a data-menu href="javascript:;">
                 <i class="glyphicon glyphicon-align-justify"></i>
             </a>
-            <a  data-logout data-toggle="modal" data-target="#logout-modal">
+            <a data-logout data-toggle="modal" href="login-modal">
                 <i class="glyphicon glyphicon-log-out"></i>
             </a>
         </nav>
@@ -71,59 +70,85 @@
             <div class="content-fluid">
                 <ol class="breadcrumb">
                     <li>
-                        <a href="#">管理系统</a>
+                        <a href="#">分类管理</a>
                     </li>
-                    <li class="active">首页</li>
+                    <li class="active">一级分类</li>
                 </ol>
-                <div class="lt-canvas">
-                    <div class="picTable">
-                    </div>
-                    <div class="picTable">
+                <div class="lt-content">
+                    <a href="#first-modal" data-toggle="modal" data-target="#first-modal" class="btn btn-default">添加分类</a>
+                    <table class="table table-bordered" style="margin-top:20px;">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>分类名称</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>1</td>
+                                <td>wanlun</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="page">
+                        <ul class="pagination"></ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- 模态框 -->
-<div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">温馨提醒：</h4>
-            </div>
-            <div class="modal-body">
-                <p class="alert alert-danger">
-                    <i class="glyphicon glyphicon-info-sign"></i>
-                    您确定要退出后台管理系统吗？
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">确定</button>
+    <!-- 模态框 -->
+    <div class="modal fade" id="first-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="first-form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="请输入一级分类名称">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" id="save" class="btn btn-primary">确定</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+    <script type="text/template" id="categoryFirst-template">
+     <%for(var i=0;i<rows.length;i++){%>
+          <tr class="text-center">
+            <td><%=(page-1)*page+i+1%></td>
+            <td><%=rows[i].categoryName%></td>
+          </tr>
+     <%}%>
+    </script>
 
     <!-- 引入 jQuery库 -->
     <script src="./lib/jquery/jquery.min.js"></script>
-    <!-- 引入echarts库 -->
-    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入分页插件-->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <!-- 引入 表单验证插件 -->
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入 bootstrap 框架 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- 引入 进度条 插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入模板引擎 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
     <!-- 引入 admin文件  -->
     <script src="./js/admin.js"></script>
     <!-- 引入 index.js 文件-->
-    <script src="./js/index.js"></script>
+    <script src="./js/categoryFirst.js"></script>
 </body>
 
 </html>

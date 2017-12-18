@@ -1,7 +1,8 @@
 // 该文件是功能是用来Js交互的
 
 //进度条  不要让进度条显示圆圈
-NProgress.configure({ showSpinner: true });
+// NProgress.configure({ showSpinner: true });
+NProgress.configure({ showSpinner: false });
 // 当ajax 请求发起的时候，让进度条开始
 //$.ajax({
 // type: 请求方式
@@ -22,7 +23,7 @@ NProgress.configure({ showSpinner: true });
 
 
 //当页面中某一个ajax请求发起时进度条开始
-$(window).ajaxStart(function () {
+$().ajaxStart(function () {
     Nprogress.start();
 })
 //当ajax 请求完成的时候，让进度条完成

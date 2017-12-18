@@ -62,7 +62,7 @@
             <a data-menu href="javascript:;">
                 <i class="glyphicon glyphicon-align-justify"></i>
             </a>
-            <a  data-logout data-toggle="modal" data-target="#logout-modal">
+            <a data-logout data-toggle="modal" data-target="#logout-modal">
                 <i class="glyphicon glyphicon-log-out"></i>
             </a>
         </nav>
@@ -73,20 +73,50 @@
                     <li>
                         <a href="#">管理系统</a>
                     </li>
-                    <li class="active">首页</li>
+                    <li class="active">用户管理</li>
                 </ol>
-                <div class="lt-canvas">
-                    <div class="picTable">
-                    </div>
-                    <div class="picTable">
-                    </div>
+                <div class="lt-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>用户名</th>
+                                <th>手机号</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>1</td>
+                                <td>wanlun</td>
+                                <td>15893225118</td>
+                                <td>正常</td>
+                                <td>
+                                    <a href="#manage-modal" data-toggle="modal" class="btn btn-primary">启用</a>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>2</td>
+                                <td>zhaoshun</td>
+                                <td>15893225118</td>
+                                <td>正常</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-danger">禁用</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="page">
+                    <ul class="pagination"></ul>
+                    </div>     
                 </div>
             </div>
         </div>
+       
     </section>
-
-<!-- 模态框 -->
-<div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <!-- 弹出层 -->
+<div class="modal fade" id="manage-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -97,8 +127,8 @@
             </div>
             <div class="modal-body">
                 <p class="alert alert-danger">
-                    <i class="glyphicon glyphicon-info-sign"></i>
-                    您确定要退出后台管理系统吗？
+                    <!-- <i class="glyphicon glyphicon-info-sign"></i> -->
+                    <!-- 您确定要退出后台管理系统吗？ -->
                 </p>
             </div>
             <div class="modal-footer">
@@ -108,22 +138,48 @@
         </div>
     </div>
 </div>
-
+    <!-- 
+    模板引擎 
+    1 。声明语法
+    2。原生语法<%%>
+    3。简介语法{{}}
+    4 绑定数据
+    template(模板的id,模板对象)
+    -->
+    <script type="text/template" id="userManage-template">
+              <%for(var i=0;i<rows.length;i++){%>
+                <tr class="text-center">
+                    <td><%=(page-1)*size+i+1%></td>
+                    <td><%=rows[i].username%></td>
+                    <td><%=rows[i].mobile%></td>
+                    <td><%=rows[i].isDelete == 1?'禁用':'正常'%></td>
+                    <td>
+                       <%if(rows[i].isDelete == 1){%>
+                            <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" href="#manage-modal" data-toggle="modal" class="btn btn-primary">启用</a>
+                        <%}else{%>
+                            <a href="javascript:;" data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" data-toggle="modal" class="btn btn-danger">禁用</a>
+                       <%}%>
+                    </td>
+                </tr>
+             <%}%>
+            </script>
 
     <!-- 引入 jQuery库 -->
     <script src="./lib/jquery/jquery.min.js"></script>
-    <!-- 引入echarts库 -->
-    <script src="./lib/echarts/echarts.min.js"></script>
-    <!-- 引入 表单验证插件 -->
-    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入 bootstrap 框架 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入模板引擎 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+    <!-- 引入 表单验证插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+   <!-- 引入分页插件 -->
+   <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <!-- 引入 进度条 插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
     <!-- 引入 admin文件  -->
     <script src="./js/admin.js"></script>
     <!-- 引入 index.js 文件-->
-    <script src="./js/index.js"></script>
+    <script src="./js/userManage.js"></script>
 </body>
 
 </html>
